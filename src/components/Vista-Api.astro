@@ -1,0 +1,52 @@
+---
+const res = await fetch("https://api.imgflip.com/get_memes");
+const data = await res.json();
+const meme = data.data.memes;   
+	console.log(data);
+
+---
+<div id="contenedor" >
+    {meme.map((item) => (
+    
+        <div class="cajas">
+            <img src={item.url} alt={item.name} height="200" width="200" >
+            <h3>{item.name}</h3>
+        </div>
+    ))}
+</div>
+    
+
+   
+
+
+
+
+<style>
+body{
+    color: rgb(255, 255, 255);
+    
+    
+}
+#contenedor{
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.cajas{
+    width: 400px;
+    background-color: rgb(163, 163, 163);
+    color: black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 10px;
+    
+    border-color: black;
+    margin: 10px;
+}
+</style>
